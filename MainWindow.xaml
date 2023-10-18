@@ -1,0 +1,46 @@
+﻿<Window x:Class="_18._10._2023_class_work_part_2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_18._10._2023_class_work_part_2"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="200" Width="500">
+
+    <Window.Resources>
+        <Style x:Key="StyleButtons">
+            <Style.Setters>
+                <Setter Property="Control.FontFamily" Value="Arial"/>
+                <Setter Property="Control.FontSize" Value="16"/>
+                <Setter Property="Control.Margin" Value="10"/>
+            </Style.Setters>
+
+            <Style.Triggers>
+                <EventTrigger RoutedEvent="Mouse.MouseEnter">
+                    <EventTrigger.Actions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetProperty="FontSize" To="24"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger.Actions>
+                </EventTrigger>
+                <EventTrigger RoutedEvent="Mouse.MouseLeave">
+                    <EventTrigger.Actions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetProperty="FontSize" To="16"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger.Actions>
+                </EventTrigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    
+    <StackPanel>
+        <TextBlock Text="Text number 1" Style="{StaticResource StyleButtons}"/>
+        <TextBlock Text="Text number 2" Style="{StaticResource StyleButtons}"/>
+        <TextBlock Text="Text number 3" Style="{StaticResource StyleButtons}"/>
+    </StackPanel>
+</Window>
